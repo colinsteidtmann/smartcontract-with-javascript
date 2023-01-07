@@ -8,6 +8,7 @@
     "functions-deploy-oracle": "hardhat run scripts/deployment/deploy.js",
     "functions-simulate-javascript": "node scripts/simulateFunctionsRequest.js",
     "functions-build-request": "node scripts/buildFunctionsRequest.js",
+    "request": "npx hardhat request",
     "lint": "solhint 'contracts/*.sol'",
     "lint:fix": "solhint 'contracts/**/*.sol' --fix"
   },
@@ -43,6 +44,7 @@
     "dotenv": "^16.0.3",
     "jsrsasign": "^10.6.0",
     "readline-promise": "^1.0.5",
+    "secp256k1": "^5.0.0",
     "vm2": "^3.9.11"
   },
   "lint-staged": {

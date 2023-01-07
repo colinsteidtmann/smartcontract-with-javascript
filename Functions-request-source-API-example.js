@@ -26,10 +26,10 @@ const coinMarketCapRequest = Functions.makeHttpRequest({
   // Get a free API key from https://coinmarketcap.com/api/
   headers: { 'X-CMC_PRO_API_KEY': secrets.apiKey }
 });
-const coinGeckoRequest= Functions.makeHttpRequest({
+const coinGeckoRequest = Functions.makeHttpRequest({
   url: `https://api.coingecko.com/api/v3/simple/price?ids=${coinGeckoCoinId}&vs_currencies=usd`,
 });
-const coinPaprikaRequest= Functions.makeHttpRequest({
+const coinPaprikaRequest = Functions.makeHttpRequest({
   url: `https://api.coinpaprika.com/v1/tickers/${coinPaprikaCoinId}`
 });
 // This dummy request simulates a failed API request
@@ -74,7 +74,7 @@ if (!badApiResponse.error) {
 } else {
   console.log('Bad API request failed. (This message is expected to demonstrate using console.log for debugging locally with the simulator)');
 }
-  
+
 // At least 3 out of 4 prices are needed to aggregate the median price
 if (prices.length < 3) {
   // If an error is thrown, it will be returned back to the smart contract
@@ -90,4 +90,4 @@ console.log(`Median Bitcoin price: $${medianPrice.toFixed(2)}`);
 // - Functions.encodeInt256
 // - Functions.encodeString
 // Or return a custom Buffer for a custom byte encoding
-return Functions.encodeUint256(Math.round(medianPrice * 100));
+return Functions.encodeInt256(Math.round(medianPrice * 100));
